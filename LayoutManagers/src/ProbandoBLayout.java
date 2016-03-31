@@ -51,14 +51,15 @@ public class ProbandoBLayout extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
+		//Añadimos un boton al norte
 		JButton btnNorte = new JButton("Norte");
 		contentPane.add(btnNorte, BorderLayout.NORTH);
 		JButton btnNorte2 = new JButton("Norte2");
 		contentPane.add(btnNorte2, BorderLayout.NORTH);
-		
+		//Añadimos un boton al centro
 		JButton btnCentro = new JButton("CENTRO");
 		contentPane.add(btnCentro, BorderLayout.CENTER);
-		
+		//Añadimos un boton al sur
 		JButton btnSur = new JButton("Sur");
 		contentPane.add(btnSur, BorderLayout.SOUTH);
 	}
