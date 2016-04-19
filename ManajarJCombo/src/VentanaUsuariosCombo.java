@@ -7,11 +7,16 @@ import javax.swing.border.EmptyBorder;
 import java.awt.FlowLayout;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
 
 public class VentanaUsuariosCombo extends JFrame {
 
 	private JPanel contentPane;
 	private String[] ciudades={"Valencia","Barcelona","Bilbao","Madrid"};
+	JComboBox comboNombresPersonas;
+	private JTextField nombreElegido;
 
 	/**
 	 * Launch the application.
@@ -46,7 +51,7 @@ public class VentanaUsuariosCombo extends JFrame {
 		contentPane.add(lblUsuarios);
 		
 		//Nuestra lista de usuarios
-		JComboBox comboNombresPersonas = new JComboBox();
+		comboNombresPersonas = new JComboBox();
 		contentPane.add(comboNombresPersonas);
 		comboNombresPersonas.addItem("Paco");
 		comboNombresPersonas.addItem("Julia");
@@ -54,9 +59,17 @@ public class VentanaUsuariosCombo extends JFrame {
 		comboNombresPersonas.addItem(nombre1);
 		String nombre2="Pedro Gomez";
 		comboNombresPersonas.addItem(nombre2);
-		
+		comboNombresPersonas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				nombreElegido.setText((String)comboNombresPersonas.getSelectedItem());
+			}
+		});		
 		JComboBox comboNombres = new JComboBox();
 		contentPane.add(comboNombres);
+		
+		nombreElegido = new JTextField();
+		contentPane.add(nombreElegido);
+		nombreElegido.setColumns(10);
 		for(int i=0;i<ciudades.length;i++){
 			comboNombres.addItem(ciudades[i]);
 		}
