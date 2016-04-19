@@ -99,7 +99,7 @@ public class RegistroUsuario extends JFrame {
 		JButton btnNewButton = new JButton("Registro");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//udb.insertarUsuario(nombreTxt.getText(), apellido1Txt.getText(), apellido2Txt.getText(), Integer.valueOf(edadTxt.getText()));
+				udb.insertarUsuario(nombreTxt.getText(), apellido1Txt.getText(), apellido2Txt.getText(), Integer.valueOf(edadTxt.getText()));
 			}
 		});
 		panel.add(btnNewButton);
