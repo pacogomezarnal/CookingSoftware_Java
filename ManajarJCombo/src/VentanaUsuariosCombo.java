@@ -11,12 +11,27 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
+/**
+* <h1>VentanaUsuariosCombo</h1>
+* La clase VentanaUsuariosCombo nos muestra un sencillo ejemplo de uso del JComboBox
+* <p>
+* Aprendemos como:
+*  - Usar el JComBoBox
+*  - Introducir eventos
+*  - Manejar objetos
+*
+* @author  Paco Gómez
+* @version 1.0
+* @since   2016-04-19 
+* @see <a href="">Java. JComboBox</a>
+*/
 public class VentanaUsuariosCombo extends JFrame {
 
 	private JPanel contentPane;
 	private String[] ciudades={"Valencia","Barcelona","Bilbao","Madrid"};
 	JComboBox comboNombresPersonas;
 	private JTextField nombreElegido;
+	private JComboBox comboComunidades;
 
 	/**
 	 * Launch the application.
@@ -72,7 +87,34 @@ public class VentanaUsuariosCombo extends JFrame {
 		nombreElegido.setColumns(10);
 		for(int i=0;i<ciudades.length;i++){
 			comboNombres.addItem(ciudades[i]);
-		}
+		}	
+		
+		//Almacenaremos objetos
+		comboComunidades = new JComboBox();
+		Comunidad cv=new Comunidad();
+		Comunidad cat=new Comunidad();
+		//Rellenamos las provincias
+		cv.setNombre("Comunidad Valenciana");
+		cat.setNombre("Cataluña");
+		cv.setNumProvincias(3);
+		cat.setNumProvincias(2);
+		cv.getProvincias()[0]="Castellon";
+		cv.getProvincias()[1]="Valencia";
+		cv.getProvincias()[2]="Alicante";
+		cat.getProvincias()[0]="Girona";
+		cat.getProvincias()[1]="Barcelona";
+		comboComunidades.addItem(cv);
+		comboComunidades.addItem(cat);
+		
+		comboComunidades.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Comunidad c=(Comunidad)comboComunidades.getSelectedItem();
+				for(int i=0;i<c.getNumProvincias();i++) System.out.println(c.getProvincias()[i]);
+			}
+		});		
+		
+		contentPane.add(comboComunidades);
+
 	}
 
 }
