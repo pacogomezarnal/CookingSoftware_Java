@@ -22,7 +22,7 @@ public class confDB {
 		      Class.forName("com.mysql.jdbc.Driver");
 		      // Setup the connection with the DB
 		      connect = DriverManager
-		          .getConnection("jdbc:mysql://192.168.1.15/mathDice?"
+		          .getConnection("jdbc:mysql://192.168.1.9/mathDice?"
 		              + "user=cook&password=cook01");
 		      //Mensaje de conexion realizada
 		      System.out.println("Conexion realizada");

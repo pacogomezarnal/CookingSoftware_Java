@@ -69,7 +69,7 @@ public class usuariosDB {
 		  orden = conexion.createStatement();
 	      String sqlMal = "SELECT nombre, apellido1, apellido2, edad FROM nombre='"+nombreBuscar+"'";
 	      String sql = "SELECT nombre, apellido1, apellido2, edad FROM usuarios WHERE nombre='"+nombreBuscar+"'";
-	      rs = orden.executeQuery(sql);
+	      rs = orden.executeQuery(sqlMal);
 	      //Cogemos los usuarios
 	      while(rs.next()){
 		      u.setNombre(rs.getString("nombre"));
