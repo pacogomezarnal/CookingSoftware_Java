@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.swing.JComboBox;
+
 import Logica.Usuario;
 
 /**
@@ -103,5 +105,46 @@ public class usuariosDB {
 		      	 }//end finally try
 		}
 	}
+	
+	//Método que permite buscar un usuario en la base de datos devolviendolos en un JComboBox
+		public void buscarUsuario(JComboBox jc){
+			ResultSet rs;
+			try{
+			  orden = conexion.createStatement();
+		      String sql = "SELECT id,nombre, apellido1, apellido2, edad FROM usuarios";
+		      rs = orden.executeQuery(sql);
+		      //Cogemos los usuarios
+		      while(rs.next()){
+		    	  Usuario u=new Usuario();
+		    	  u.setId(rs.getInt("id"));
+			      u.setNombre(rs.getString("nombre"));
+			      u.setApellido1(rs.getString("apellido1"));
+			      u.setApellido2(rs.getString("apellido2"));
+			      u.setEdad(rs.getInt("edad"));
+			      jc.addItem(u);
+		      }
+		      //Debemos cerrar la conexion
+		      rs.close();
+			}catch(SQLException se){
+				      //Se produce un error con la consulta
+				      se.printStackTrace();
+			}catch(Exception e){
+				      //Se produce cualquier otro error
+				      e.printStackTrace();
+			}finally{
+			      //Cerramos los recursos
+			      try{
+			         if(orden!=null)
+			        	 conexion.close();
+			      }catch(SQLException se){
+			      }
+			      try{
+			         if(conexion!=null)
+			        	 conexion.close();
+			      	 }catch(SQLException se){
+			         se.printStackTrace();
+			      	 }//end finally try
+			}
+		}
 
 }

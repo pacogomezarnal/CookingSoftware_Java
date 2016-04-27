@@ -12,6 +12,7 @@ package Logica;
 */
 public class Usuario {
 	
+	private int id;
 	private String nombre="";
 	private String apellido1="";
 	private String apellido2="";
@@ -53,6 +54,18 @@ public class Usuario {
 
 	public void setEdad(int edad) {
 		this.edad = edad;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public String toString(){
+		return this.id+" "+this.nombre+" "+this.apellido1;
 	}
 
 }

@@ -1,4 +1,5 @@
 import Ventanas.SelectUsuario;
+import Ventanas.SelectUsuarioJCombo;
 
 /**
 * <h1>Principal</h1>
@@ -13,7 +14,7 @@ import Ventanas.SelectUsuario;
 public class Principal {
 
 	public static void main(String[] args) {
-		SelectUsuario frame = new SelectUsuario();
+		SelectUsuarioJCombo frame = new SelectUsuarioJCombo();
 		frame.setVisible(true);		
 	}
 
