@@ -3,7 +3,6 @@ package Modelo;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-import Controlador.Controlador;
 
 /**
 * <h1>confDB</h1>
