@@ -6,6 +6,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Controlador.LibMD5;
+import Modelo.UsuarioDB;
+
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -139,15 +143,26 @@ public class Login extends JFrame {
 	private boolean isUserCorrect(String user, char[] input) {
 		//Variables de control
 	    boolean isCorrect = true;
-	    char[] correctPassword = { '1','2','3'};
-	    String correctUser="Paco";
+	    //char[] correctPassword = { '1','2','3'};
+	    //String correctUser="Paco";
 
+	    //Primero recuperar el pass desde la base de datos
+	    UsuarioDB uDB=new UsuarioDB();
+	    String correctPassword=uDB.selectUsuario(user);
+	    if(correctPassword!=null){
+			//Generaremos el hash MD5
+			String contrasenya= LibMD5.getMD5(textPass.getPassword());
+			if(!contrasenya.equals(correctPassword)) isCorrect = false;
+	    }else{
+	    	isCorrect = false;
+	    }
+	    /*
 	    if ((input.length != correctPassword.length)||(user.length()!=correctUser.length())) {
 	        isCorrect = false;
 	    } else {
 	    	if(Arrays.equals (input, correctPassword)&&(correctUser.equals(user))) isCorrect=true;
 	    	else isCorrect=false;
-	    }
+	    }*/
 	    return isCorrect;
 	}
 

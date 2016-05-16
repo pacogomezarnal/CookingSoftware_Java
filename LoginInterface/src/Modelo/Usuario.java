@@ -11,6 +11,8 @@ public class Usuario {
 	private String apellido2;
 	private int edad;
 	private int puntos;
+	private String usuario;
+
 	private int id;
 	
 	
@@ -74,13 +76,14 @@ public class Usuario {
 	public Usuario() {
 		
 	}
-	public Usuario(String nombre,String apellido1,String apellido2,int edad) {
+	public Usuario(String nombre,String apellido1,String apellido2,int edad,String usuario) {
 		this.nombre=nombre;
 		this.apellido1=apellido1;
 		this.apellido2=apellido2;
 		this.apellidos=apellido1+" "+apellido2;
 		this.edad=edad;
 		this.puntos=0;		
+		this.usuario=usuario;
 	}
 	
 	
@@ -88,4 +91,11 @@ public class Usuario {
 		return this.id+"-"+this.nombre+" "+this.apellido1;
 	}
 
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
 }

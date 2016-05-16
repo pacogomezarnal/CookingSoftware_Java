@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Controlador.LibMD5;
 import Modelo.Usuario;
 import Modelo.UsuarioDB;
 
@@ -211,8 +212,11 @@ public class Registro extends JFrame {
 				                JOptionPane.ERROR_MESSAGE);						
 					}else{
 						//Insertamos el nuevo usuario
-						Usuario u=new Usuario(nombre,apellido1,apellido2,Integer.valueOf(edad));
+						Usuario u=new Usuario(nombre,apellido1,apellido2,Integer.valueOf(edad),usuario);
 						UsuarioDB uDB=new UsuarioDB();
+						//Generaremos el hash MD5
+						String contrasenya= LibMD5.getMD5(passwordField.getPassword());
+						uDB.insertarUsuario(u, contrasenya);
 						
 					}
 				}
