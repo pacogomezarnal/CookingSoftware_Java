@@ -5,6 +5,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+* <h1>UsuarioDB</h1>
+* Clase que nos permite interactuar con la BBDD para la inserción y comprobación de un usuario
+* 
+*
+* @author  Paco Gómez
+* @version 1.0
+* @since   2016-05-17
+* @see <a href="">Java. LoginInterface</a>
+*/
 public class UsuarioDB {
 
 	public UsuarioDB() {

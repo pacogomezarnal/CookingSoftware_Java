@@ -25,6 +25,16 @@ import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.awt.event.ActionEvent;
 
+/**
+* <h1>Registro</h1>
+* Típica pantalla de registro de usuario en aplicación
+* 
+*
+* @author  Paco Gómez
+* @version 1.0
+* @since   2016-05-15
+* @see <a href="">Java. Login Interface</a>
+*/
 public class Registro extends JFrame {
 
 	private JPanel contentPane;
@@ -217,7 +227,10 @@ public class Registro extends JFrame {
 						//Generaremos el hash MD5
 						String contrasenya= LibMD5.getMD5(passwordField.getPassword());
 						uDB.insertarUsuario(u, contrasenya);
-						
+			            JOptionPane.showMessageDialog(contentPane,
+				                "Usuario registrado con éxito.",
+				                "REGISTRADO",
+				                JOptionPane.INFORMATION_MESSAGE);		
 					}
 				}
 			}

@@ -7,7 +7,7 @@ import Vista.Login;
 *
 * @author  Paco Gómez
 * @version 1.0
-* @since   2016-05-11
+* @since   2016-05-17
 * @see <a href="">Java. LoginInterface</a>
 */
 public class Iniciar {

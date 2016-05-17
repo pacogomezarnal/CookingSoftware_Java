@@ -8,6 +8,16 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
+/**
+* <h1>LibMD5</h1>
+* Clase que nos permite generar un hash MD5 para almacenarlo en la BBDD
+* 
+*
+* @author  Paco Gómez
+* @version 1.0
+* @since   2016-05-17
+* @see <a href="">Java. LoginInterface</a>
+*/
 public class LibMD5 {
 
 	public LibMD5() {
